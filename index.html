@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录中心</title>
+    <link rel="icon" href="javascript:;" />
+    <script src="./utils/index.js"></script>
+    <script src="./utils/rsautil.js"></script>
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script>
+        // const requestUrl = 'https://www.chinaeducloud.com';
+        // const requestUrl = 'http://nx.cvei.cn';
+        const requestUrl = 'http://www.zjyd.testa';
+        // const requestUrl = 'http://jx.cvei.cn';
+        // const requestUrl = 'http://192.168.8.12:30800';
+        $.ajax({
+            url: requestUrl + '/api/gongyong/api/v1/address/type',
+            type: 'post',
+            async: false,
+            contentType: 'application/json;charset=utf-8',
+            data: '{"type": "100002"}',
+            dataType: 'json',
+            success: (res) => {
+                if (res.code === 0) {
+                    window.imageUrl = res.result.url;
+                } else {
+                    alert(res.message);
+                }
+            }
+        });
+    </script>
+    <script src="./utils/img_ver.js"></script>
+    <script src="./utils/qrcode.min.js"></script>
+    <script src="./utils/js.cookie.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script> -->
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+    <script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body style="transform-origin: left top;position: relative;">
+    <!-- <div class="message_box"></div> -->
+    <div class="main_box" id="main_box">
+        <div class="header">
+            <h1 class="logo">
+                <!-- <img src="" data-src="zjyd-space-front-loginCenter/white_logo.png" alt=""> -->
+                <!-- <img src="./svg/logo.svg" data-src="zjyd-space-front-loginCenter/title.svg" alt=""> -->
+                <img src="./svg/logo.svg" data-src="zjyd-space-front-loginCenter/logo.svg" alt="">
+            </h1>
+            <h1></h1>
+            <div class="back">
+                <img src="" alt="" data-src="zjyd-space-front-loginCenter/back_icon.png">
+                <span class="back_btn">回到首页</span>
+            </div>
+        </div>
+        <div class="login_box">
+            <div class="left_login_box">
+                <div class="content">
+                    <h2>遇见未来·咫尺匠心</h2>
+                    <p>构建现代化的全场景</p>
+                    <p>智慧教育生态体系服务全民终身学习</p>
+                </div>
+
+            </div>
+            <div class="right_login_box">
+                <div class="right_top_logo">
+                    <img class="guide_img" src="" alt="" data-src="zjyd-space-front-loginCenter/er_icon.png">
+                    <div class="guide_text">
+                        大国匠app扫码登录
+                    </div>
+                </div>
+                <div class="login_c">
+                    <div class="title">
+                        登&nbsp;&nbsp;录
+                    </div>
+                    <div class="nav">
+                        <div index='0' class="nav_item active">手机号码</div>
+                        <div index='1' class="nav_item">手机验证码</div>
+                        <div index='2' class="nav_item">机构账号</div>
+                    </div>
+                    <div class="container">
+                        <div class="container_item one ">
+                            <form method="post" id="form1">
+                                <fieldset>
+                                    <div class="item puserName" style="margin-bottom: 40px;">
+                                        <input placeholder="输入手机号" id="userName" name="userName" type="text">
+                                    </div>
+                                    <div class="item ppassword">
+                                        <input placeholder="请输入密码" id="password" name="password" type="password">
+                                    </div>
+                                    <div class="forget">
+                                        <a href="#" class="go_forget">忘记密码?</a>
+                                    </div>
+                                    <input class="submit tel_login" type="button" value="登&nbsp;&nbsp;录">
+                                </fieldset>
+                            </form>
+                            <div class="registry">
+                                还没有账号?&nbsp;&nbsp;<a href="#" class="go_registry">立即注册</a>
+                            </div>
+                        </div>
+                        <div class="container_item two none">
+                            <form method="dialog" id="form2">
+                                <fieldset>
+                                    <div class="item codeuser" style="margin-bottom: 40px;">
+                                        <input placeholder="输入手机号" id="codeuser" name="codeuser" type="text" required>
+                                    </div>
+                                    <div class="item pcode code_item">
+                                        <div>
+                                            <input placeholder="请输入验证码" id="code" name="code" type="text" required>
+                                            <span class="get_telLogin_code code_count">获取验证码</span>
+                                        </div>
+                                    </div>
+                                    <input style="margin-top: 67px;" class="submit code_login" type="button"
+                                        value="登&nbsp;&nbsp;录">
+                                </fieldset>
+                            </form>
+                            <div class="registry">
+                                还没有账号?&nbsp;&nbsp;<a href="#" class="go_registry">立即注册</a>
+                            </div>
+                        </div>
+                        <div class="container_item three none">
+                            <form id="form3">
+                                <fieldset>
+                                    <div class="item puserName" style="margin-bottom: 33px;">
+                                        <input placeholder="输入学校名称" id="userName" name="userName" type="text" required>
+                                    </div>
+                                    <div class="item pcode" style="margin-bottom: 33px;">
+                                        <input placeholder="输入学号/工号" id="code" name="code" type="text" required>
+                                    </div>
+                                    <div class="item pcode">
+                                        <input placeholder="请输入密码" id="code" name="code" type="text" required>
+                                    </div>
+                                    <div class="forget">
+                                        <a href="#" class="go_forget">忘记密码?</a>
+                                    </div>
+                                    <input class="submit" type="submit" value="登&nbsp;&nbsp;录">
+                                </fieldset>
+                            </form>
+                            <div class="registry">
+                                还没有账号?&nbsp;&nbsp;<a href="#" class="go_registry">立即注册</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="qrcode_c none">
+                    <h2>
+                        手机扫码 安全登录
+                    </h2>
+                    <div id="qr_box" class="qr_box">
+
+                    </div>
+                    <p class="open_app">
+                        打开 大国匠App 扫一扫登录
+                    </p>
+                    <div class="btn">
+                        <span class="cur go_paslogin">密码登录</span>
+                        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                        <span class="cur go_registry">立即注册</span>
+                    </div>
+                </div>
+                <div class="bottom base">
+                    <span>
+                        如登录、注册遇到问题，请<span class="cur contact">联系客服</span>
+                    </span>
+                </div>
+            </div>
+            <div class="right_forget_box none">
+                <div class="title">
+                    忘记密码
+                </div>
+                <div class="container">
+                    <div class="container_forget_item">
+                        <form method="dialog" id="form_forget">
+                            <fieldset>
+                                <div class="item codeuser" style="margin-bottom: 40px;">
+                                    <input placeholder="输入手机号" id="forget_codeuser" name="codeuser" type="text"
+                                        required>
+                                </div>
+                                <div class="item pcode code_item" style="margin-bottom: 40px;">
+                                    <div>
+                                        <input placeholder="请输入验证码" id="forget_code" name="code" type="text" required>
+                                        <span class="get_forget_code code_count">获取验证码</span>
+                                    </div>
+                                </div>
+                                <div class="item newPassword">
+                                    <input placeholder="设置新密码" id="forget_newPassword" name="newPassword"
+                                        type="password" required>
+                                </div>
+                                <input style="margin-top: 67px;" class="submit sure_forget" type="button" value="确定">
+                            </fieldset>
+                        </form>
+                        <div class="registry">
+                            已有账号?&nbsp;&nbsp;<a href="#" class="go_forget go_login">登&nbsp;&nbsp;录</a>
+                        </div>
+                    </div>
+                    <div class="bottom base">
+                        <span>
+                            如登录、注册遇到问题，请<span class="cur contact">联系客服</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="right_registry_box none">
+                <div class="title">
+                    欢迎注册
+                </div>
+                <div class="container">
+                    <form method="dialog" id="registry_form">
+                        <fieldset>
+                            <div class="item" style="margin-bottom: 40px;">
+                                <input placeholder="输入手机号" id="registry_tel" name="registry_tel" type="text">
+                            </div>
+                            <div class="item pcode code_item" style="margin-bottom: 40px;">
+                                <div>
+                                    <input placeholder="请输入验证码" id="registry_code" name="code" type="text" required>
+                                    <span class="get_registry_code code_count">获取验证码</span>
+                                </div>
+                            </div>
+                            <div class="item" style="margin-bottom: 61px;">
+                                <input placeholder="设置登录密码" id="registry_password" name="registry_password"
+                                    type="password">
+                            </div>
+                            <div class="check_box">
+                                <input type="checkbox" name="isSure" id="check"> <label for="check">注册即表示同意平台<span
+                                        class="color">《隐私政策》</span>和<span class="color">《用户协议》</span></label>
+                            </div>
+                            <input class="submit sub_registry" type="button" style="margin-top: 28px;"
+                                value="注&nbsp;&nbsp;册">
+                        </fieldset>
+                    </form>
+                    <div class="registry">
+                        已有账号?&nbsp;&nbsp;<a href="#" class="go_login">登&nbsp;&nbsp;录</a>
+                    </div>
+                </div>
+                <div class="bottom base">
+                    <span>
+                        如登录、注册遇到问题，请<span class="cur contact">联系客服</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>
+                CopyRight©2020 zjyve.com.All rights reserved 京ICP备20020432号-3
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./js/index.js"></script>
+<script>
+    var qrcode = new QRCode(document.getElementById("qr_box"), {
+        width: 180,
+        height: 180
+    });
+    qrcode.makeCode('纪永升');
+</script>
+<script>
+    function isIphone() {
+        return /iphone/gi.test(navigator.userAgent);
+    }
+
+    function changeScale() {
+        let g = document.documentElement;
+        let bodyW = g.clientWidth;
+        let el = document.querySelector('body');
+        let scale = bodyW / 1920;
+        el.style.width = '1920px';
+        // if (bodyW > 1920 || bodyW < 1440) {
+        el.style.transform = `scale(${scale})`;
+        el.style.height = 100 / scale + '%';
+        // } else {
+        //     el.style.width = '100%';
+        //     el.style.transform = `scale(${1})`;
+        //     el.style.height = '100%';
+        // }
+    }
+
+    if (!isIphone()) { //判断设备不是iphone手机
+        changeScale();
+        window.addEventListener('resize', changeScale);
+    }
+
+    $.message = function (options) {
+
+        let { message, duration, type, showClose, center, onClose } = options;
+        type = type || 'info';
+        showClose = showClose === true ? showClose : false;
+        center = center === true ? center : false;
+        //0判断是认为是false,单独判断
+        if (duration == 0) {
+            duration = 0;
+        } else {
+            duration = duration || 3000;
+        }
+
+        //不同的type则不同的颜色、样式
+        let color = {};
+        if (type === 'info') { color = { bC: '#edf3fd', fC: '#00f', icon: '!' } };
+        if (type === 'success') { color = { bC: '#eff7ea', fC: '#0f0', icon: '<svg viewBox="64 64 896 896" focusable="false" class="" data-icon="check-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"></path></svg>' } };
+        if (type === 'warning') { color = { bC: '#fef6ea', fC: '#f90', icon: '!' } };
+        if (type === 'error') { color = { bC: '#fff2f0', fC: '#f00', icon: 'X' } };
+
+        //如果center则起始于屏幕中间
+        let msgTop = center === true ? $(window).height() / 2 - 50 : 10;
+
+        //如果页面已经存在一个提示,则先删除提示框
+        if ($('.message')) {
+            $('.message').remove();
+        }
+
+        //添加一个提示框
+        $('body').append($(`<span class="message"><span style='text-align:center'>${message}</span></span>`));
+
+        //如果是warning添加小叉叉
+        if (showClose === true) {
+            // $('.message').append($('<p class = "close">x</p>'))
+            $('.close').css({
+                position: 'absolute',
+                width: 14,
+                height: 14,
+                font: '14px/1 ""',
+                right: 20,
+                top: 0,
+                bottom: 0,
+                margin: 'auto 0',
+                color: '#000'
+            });
+        }
+
+        //小图标信息的样式
+        $('.message').append(`<div class="icon">${color.icon}</div>`);
+        $('.icon').css({
+            position: 'absolute',
+            width: 20,
+            height: 20,
+            font: '700 16px/20px ""',
+            textAlign: 'center',
+            background: color.fC,
+            color: '#fff',
+            borderRadius: '50%',
+            left: 10,
+            top: 0,
+            bottom: 0,
+            margin: 'auto 0'
+        });
+
+        //加样式,并动起来
+        $('.message').css({
+            borderRadius: 5,
+            padding: '0px 10px 0px 40px',
+            background: '#fff',
+            position: 'absolute',
+            font: '15px/50px ""',
+            left: '50%',
+            top: 0,
+            transform: 'translate(-50%,-50%)',
+            margin: '0 auto',
+        })
+            .stop().animate({
+                top: msgTop + 50
+            })
+            .delay(duration).hide(0);
+
+        //点击关闭
+        // $('.close').on('click', function () {
+        //     //有则调用回调函数并关闭,没有直接关闭
+        //     onClose ? onClose() : null;
+        //     $('.message').hide();
+        // });
+    }
+
+
+
+    // window.location.href = `http://www.logincenter.com?url=${你当前所在系统的域名}`
+</script>

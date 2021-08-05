@@ -1,0 +1,541 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: url("https://zjyddev.oss-cn-beijing.aliyuncs.com/zjyd-front-img/zjyd-space-front-loginCenter/login_bg.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  font-family: Noto Sans SC;
+  overflow-x: hidden;
+}
+.main_box {
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+}
+.header {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 70px 95px 80px;
+  .logo {
+    width: 312px;
+    height: 45px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .back {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    img {
+      margin-right: 10px;
+    }
+  }
+}
+.login_box {
+  width: 100%;
+  padding: 0px 230px 0px 200px;
+  height: 700px;
+  display: flex;
+  .title {
+    color: #282f38;
+    font-size: 34px;
+    margin-bottom: 44px;
+  }
+  .left_login_box {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .content {
+      position: relative;
+      left: 30px;
+      color: #ffffff;
+      h2 {
+        font-size: 40px;
+        margin-bottom: 16px;
+        font-weight: normal;
+        letter-spacing: 0.05em;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 10px;
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+  .qrcode_c {
+    width: 100%;
+    background: #ffffff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h2 {
+      margin-bottom: 30px;
+      color: #282f38;
+      font-size: 24px;
+    }
+    .qr_box {
+      border: 2px solid #306be8;
+      padding: 10px;
+      margin-bottom: 14px;
+    }
+    .open_app {
+      color: #666666;
+      font-size: 14px;
+      width: 180px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .btn {
+      width: 180px;
+      display: flex;
+      justify-content: center;
+      color: #333333;
+    }
+  }
+  .container {
+    width: 100%;
+    .forget {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 8px;
+      a {
+        color: #306be8;
+        font-size: 12px;
+      }
+    }
+    .registry {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+      align-items: center;
+      a {
+        color: #306be8;
+        font-size: 12px;
+      }
+    }
+    .submit {
+      width: 100%;
+      height: 48px;
+      background: #306be8;
+      color: #ffffff;
+      outline: none;
+      border: solid 1px #306be8;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+    .item {
+      height: 48px;
+      input {
+        height: 48px;
+        width: 100%;
+        outline: none;
+        border: 1.5px solid #e9eef4;
+        background: #ffffff;
+        padding-left: 20px;
+        color: #999999;
+        font-size: 16px;
+      }
+    }
+  }
+  .code_item {
+    width: 100%;
+    > div {
+      width: 100%;
+      display: flex;
+    }
+    input {
+      flex: 1;
+      border-right: none;
+    }
+    span {
+      width: 90px;
+      color: #306be8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1.5px solid #e9eef4;
+      border-left: none;
+      position: relative;
+      cursor: pointer;
+      // &::before {
+      //   content: "";
+      //   width: 2px;
+      //   height: 14px;
+      //   position: absolute;
+      //   left: 0;
+      //   top: 50%;
+      //   margin-top: -7px;
+      //   background: #e9eef4;
+      // }
+    }
+  }
+  .right_login_box {
+    width: 460px;
+    height: 100%;
+    background: #ffffff;
+    position: relative;
+    padding: 100px 55px 13px 55px;
+    .right_top_logo {
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      cursor: pointer;
+      &:hover {
+        > div {
+          display: flex;
+        }
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      > div {
+        width: 130px;
+        height: 26px;
+        position: absolute;
+        right: 50px;
+        top: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-image: url("https://zjyddev.oss-cn-beijing.aliyuncs.com/zjyd-front-img/zjyd-space-front-loginCenter/code_alert.png");
+        // display: none;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+    .nav {
+      width: 100%;
+      display: flex;
+      height: 43px;
+      color: #606a78;
+      font-size: 18px;
+      border-bottom: 1.5px solid #e8f0f9;
+      margin-bottom: 26px;
+      div {
+        cursor: pointer;
+        margin-right: 50px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &.active {
+          color: #306be8;
+          border-bottom: solid 1.5px#306BE8;
+        }
+      }
+    }
+    .one {
+      width: 100%;
+    }
+    .two {
+    }
+  }
+  .right_registry_box{
+    width: 460px;
+    height: 100%;
+    background: #ffffff;
+    position: relative;
+    padding: 100px 55px 13px 55px;
+    .check_box{
+      // display: flex;
+      align-items: center;
+      .color{
+        color: #111111;
+      }
+      input{
+        margin-right: 10px;
+        cursor: pointer;
+        border: 1.5px solid #E9EEF4;
+      }
+      label{
+        cursor: pointer;
+      }
+    }
+    .container{
+
+    }
+  }
+  .right_forget_box{
+    width: 460px;
+    height: 100%;
+    background: #ffffff;
+    position: relative;
+    padding: 100px 55px 13px 55px;
+    .title {
+      color: #282f38;
+      font-size: 34px;
+      margin-bottom: 44px;
+    }
+  }
+}
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  // padding: 40px 0px;
+  position: absolute;
+  bottom: 20px;
+  span {
+    color: #ffffff;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+#main_box .none {
+  display: none;
+}
+
+.modal_box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 200;
+  .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .modal_content {
+    width: 1032px;
+    height: 490px;
+    background: #ffffff;
+    box-shadow: 4px 6px 39px rgba(101, 138, 193, 0.2);
+    border-radius: 10px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    z-index: 201;
+    .left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+      img {
+        width: 296px;
+        height: 242px;
+      }
+    }
+    .right {
+      width: 484px;
+      padding-right: 39px;
+      padding-top: 60px;
+      h2 {
+        padding-bottom: 20px;
+        color: #0d1731;
+        font-size: 29px;
+        border-bottom: 1px solid #f3f3f3;
+      }
+      .hlo {
+        margin-top: 20px;
+        color: #333333;
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 23px;
+        padding-right: 46px;
+        font-weight: bold;
+      }
+      .con {
+        color: #0d1731;
+        opacity: 0.5;
+        font-size: 14px;
+        margin-bottom: 10px;
+        padding-right: 46px;
+        line-height: 23px;
+        &:last-child {
+          margin-bottom: 24px;
+        }
+      }
+      > div {
+        margin-top: 24px;
+        span {
+          color: #306be8;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.scusess_box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  .con {
+    width: 400px;
+    height: 220px;
+    z-index: 201;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 26px;
+    }
+    h2 {
+      margin-bottom: 6px;
+      color: #333333;
+      font-size: 20px;
+    }
+    p {
+      color: #666666;
+      font-size: 14px;
+    }
+  }
+}
+
+.two_modal_box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  .slider_box {
+    width: 400px;
+    height: 417px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    z-index: 201;
+    box-shadow: 3px 3px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    user-select: none;
+    h2 {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1.5px solid #e8f0f9;
+      margin-bottom: 15px;
+      span:nth-child(1) {
+        color: #282f38;
+        font-size: 20px;
+      }
+    }
+    .slider-btn {
+      position: absolute;
+      width: 65.97px;
+      height: 65.97px;
+      left: -14px;
+      top: -11px;
+      z-index: 12;
+      cursor: pointer;
+      // background-image: url("https://zjyddev.oss-cn-beijing.aliyuncs.com/zjyd-front-img/zjyd-space-front-loginCenter/sprite.3.2.0.png");
+      background-position: 0 11.79625%;
+      transition: inherit;
+    }
+    .verBox {
+      width: 100%;
+      height: 335px;
+      padding: 0px 15px;
+      .imgVer {
+        width: 100%;
+        height: 250px;
+      }
+    }
+  }
+}
+
+div.error {
+  color: #ff5555;
+  font-size: 14px;
+  padding-top: 8px;
+}
+#main_box input.error {
+  border: 1.5px solid #ff5555;
+}
+
+.base {
+  height: 44px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  span {
+    color: #999999;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+  .cur {
+    color: #306be8;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+.cur {
+  cursor: pointer;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+}
+
+#main_box .count_down {
+  color: #999999;
+}
+#check{
+  position: relative;
+  top: 1px;
+}
+
+.message_box{
+    border-radius: 2px;
+    padding-left: 40px; 
+    position: absolute;
+    display: block;
+    height: 50px;
+    font: 15px / 50px "";
+    left: 0px;
+    right: 0px;
+    top: 473px;
+    margin: 0px auto;
+    ;
+}
